@@ -184,95 +184,40 @@
     <span class="eyebrow">Lancers 5601177 ご提案</span>
     <h1><svg class="t-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6"/><path d="M9 17h4"/></svg>金融審査書類の自動解析 PoC</h1>
     <p class="lede">
-      ご依頼文の「応募時の記載事項」6点に、この1枚で順番にお答えします。<br>
-      できることだけでなく、<b>20万円の中で難しいところ</b>も先に書きました。
+      ご依頼文の「応募時の記載事項」6点に、この1枚でお答えします。
     </p>
   </header>
 
   <nav class="toc" aria-label="目次">
     <h3>目次</h3>
-    <a href="#ch1"><span class="no">&#9312;</span><span>ご依頼の6点への回答（要約）</span></a>
-    <a href="#ch2"><span class="no">&#9313;</span><span>使うOCR・AIと、その選び方</span></a>
-    <a href="#ch3"><span class="no">&#9314;</span><span>Driveの検出と「前回との比較」をどう作るか</span></a>
-    <a href="#ch4"><span class="no">&#9315;</span><span>20万円の中でできること／別途になること</span></a>
-    <a href="#ch5"><span class="no">&#9316;</span><span>近い実績と、正直に足りないところ</span></a>
-    <a href="#ch6"><span class="no">&#9317;</span><span>納期・修正対応・再委託・秘密保持</span></a>
+    <a href="#ch1"><span class="no">&#9312;</span><span>ご依頼の6点への回答</span></a>
+    <a href="#ch2"><span class="no">&#9313;</span><span>どう動かすか</span></a>
+    <a href="#ch3"><span class="no">&#9314;</span><span>20万円の中身</span></a>
+    <a href="#ch4"><span class="no">&#9315;</span><span>納期とお約束</span></a>
   </nav>
 
   <section id="ch1">
-    <h2><span class="step">&#9312;</span>ご依頼の6点への回答（要約）</h2>
+    <h2><span class="step">&#9312;</span>ご依頼の6点への回答</h2>
 
     <div class="table-wrap">
       <table>
         <thead>
-          <tr><th>ご依頼の記載事項</th><th>回答（詳細は各章）</th></tr>
+          <tr><th>ご依頼の記載事項</th><th>回答</th></tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1. 類似実績</td>
-            <td>PDF・帳票の自動生成と差し替え量産、文書を読ませて構造化するAIアプリ、外部データの定期取込（毎日・冪等）、非エンジニア向けの管理画面。<br><b>OCRエンジンそのものを納品した実績はございません</b>（第&#9316;章に正直に書きました）。</td>
-          </tr>
-          <tr>
-            <td>2. 使用予定のOCR・AI</td>
-            <td>入口がGoogle Driveのため<b>Google Cloud の Document AI を第一候補</b>とし、生成AI（Gemini）による読み取りと<b>同じサンプルで突き合わせて</b>書類種別ごとに採用を決めます。1つに決め打ちしません。</td>
-          </tr>
-          <tr>
-            <td>3. Drive検出・前回比較の実装方法</td>
-            <td>Drive APIの変更履歴を定期取得し、<b>ファイルIDと更新日時で処理済みを管理</b>。「最終更新から数分止まったら解析開始」で書類追加の完了を待ちます。前回比較は口座と期間を正規化して突合し、<b>断定せず「要確認」</b>で出します。</td>
-          </tr>
-          <tr>
-            <td>4. 予算内で可能な範囲と難しい部分</td>
-            <td>ご提示の20万円で<b>&#9315;章の「入る範囲」は完了できます</b>。スマホ写真の強い傾き・影・低解像度、手書き、銀行フォーマットの網羅は<b>100%にはなりません</b>。PoCで実測値をお出しします。</td>
-          </tr>
-          <tr>
-            <td>5. 納期・修正対応</td>
-            <td>4〜6週間。<b>毎週、動くものをお見せします</b>。検収期間中の不具合修正は無償です。</td>
-          </tr>
-          <tr>
-            <td>6. 再委託の有無</td>
-            <td><b>再委託はありません</b>。当方1名で設計から実装まで担当します。</td>
-          </tr>
+          <tr><td>1. 類似実績</td><td>PDF帳票の自動生成、外部データの毎日取込、Claude・OpenAI APIの組み込み2件。<br><b>OCRエンジンの納品実績はございません。</b></td></tr>
+          <tr><td>2. 使用予定のOCR・AI</td><td>Document AI と生成AI を同じサンプルに当て、<b>書類種別ごとに採用を決めます</b>（図2）。</td></tr>
+          <tr><td>3. Drive検出・前回比較</td><td>変更履歴を定期取得し、追加が止まってから解析。前回比較は<b>断定せず「要確認」</b>で出します（図1）。</td></tr>
+          <tr><td>4. 予算内で可能な範囲<br>と難しい部分</td><td><b>入る／難しい／別途</b>の3つに分けました（図3）。</td></tr>
+          <tr><td>5. 納期・修正対応</td><td>4〜6週間。<b>毎週、動くものをお見せします。</b></td></tr>
+          <tr><td>6. 再委託の有無</td><td><b>ありません。</b>当方1名で担当します。</td></tr>
         </tbody>
       </table>
     </div>
   </section>
 
   <section id="ch2">
-    <h2><span class="step">&#9313;</span>使うOCR・AIと、その選び方</h2>
-
-    <div class="reading">
-      <h3>結論</h3>
-      <p>
-        <b>1つのエンジンに決め打ちせず、PoCの第1〜2週で2系統を同じサンプルに当てて比較します。</b><br>
-        審査書類は「請求書のような定型」と「通帳の写真のような非定型」が混ざるため、<br>
-        1つのエンジンで全部を賄おうとすると、どこかの書類種別で必ず精度が落ちるためです。
-      </p>
-    </div>
-
-    <div class="table-wrap">
-      <table>
-        <thead>
-          <tr><th>候補</th><th>担当させる書類</th><th>選定理由</th></tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Document AI<br>（Google Cloud）</td>
-            <td>請求書・発注書・注文書<br>取引CSV</td>
-            <td>入口のGoogle Driveと同じGoogleの基盤で完結し、<b>データを外へ出す先が1つ減ります</b>（ご依頼文のセキュリティ要件に効きます）。定型帳票の項目抽出に強い系統です。</td>
-          </tr>
-          <tr>
-            <td>生成AI<br>（Gemini）</td>
-            <td>通帳写真・ネットバンキング画面<br>メール・LINEの取引証拠</td>
-            <td>決まった様式が無い書類や、<b>文脈で判断が要るもの</b>に向きます。書類種別の分類と「不鮮明・欠落の疑い」の指摘もこちらで受け持ちます。</td>
-          </tr>
-          <tr>
-            <td>比較検証</td>
-            <td>全種別</td>
-            <td>同じサンプルに両方を当て、<b>書類種別ごとに採用を決めた根拠を数字で残します</b>。精度が足りない種別が出た場合は、別系統（Azure等）の追加検証もご提案します。</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    <h2><span class="step">&#9313;</span>どう動かすか</h2>
 
     <p class="hint">
       <svg viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2" aria-hidden="true">
@@ -281,6 +226,87 @@
       箱にマウスを合わせる（スマートフォンは指で押す）と、補足が出ます。
     </p>
 
+    <h3>図1　全体の流れ</h3>
+    <div class="figure">
+      <div class="svg-holder">
+        <svg viewBox="0 0 1600 840" role="img" aria-label="Google Driveの申込フォルダの変更を検出し、追加が終わるのを待ってから書類種別を分け、2系統で読み取り、前回資料と比較し、管理画面に要確認を出して担当者へ通知するまでの流れ図">
+          <defs>
+            <marker id="f1a" markerWidth="12" markerHeight="12" refX="9" refY="4" orient="auto">
+              <path d="M0,0 L9,4 L0,8 Z" fill="#D4AF37"/>
+            </marker>
+          </defs>
+
+          <g class="node" tabindex="0" data-name="Google Drive（申込ごとのフォルダ）"
+             data-tip="お客様が提出した書類が自動保存されている場所です。当方は読み取り専用の権限だけを要求し、書き込み権限は最初から持ちません。">
+            <rect class="box" x="60" y="140" width="330" height="170" rx="10" fill="#111825" stroke="#4A586B" stroke-width="2"/>
+            <text x="90" y="212" fill="#F2F4F7" font-size="30" font-weight="700">Google Drive</text>
+            <text x="90" y="262" fill="#C3CDD9" font-size="26">申込ごとのフォルダ</text>
+          </g>
+
+          <g class="node" tabindex="0" data-name="① 変更を検出"
+             data-tip="Drive APIの変更履歴を定期取得します。フォルダを毎回すべて走査しないため、件数が増えても処理時間が伸びません。">
+            <rect class="box" x="460" y="140" width="330" height="170" rx="10" fill="#1B2333" stroke="#D4AF37" stroke-width="2"/>
+            <text x="490" y="212" fill="#F2F4F7" font-size="30" font-weight="700">① 変更を検出</text>
+            <text x="490" y="262" fill="#C3CDD9" font-size="26">変更履歴を定期取得</text>
+          </g>
+
+          <g class="node" tabindex="0" data-name="② 追加が終わるまで待つ"
+             data-tip="お客様は数分かけて複数ファイルを置いていきます。1件目で解析すると毎回「途中の状態」を解析することになるため、動きが止まるのを待ちます。時間は調整できます。">
+            <rect class="box" x="860" y="140" width="330" height="170" rx="10" fill="#1B2333" stroke="#D4AF37" stroke-width="2"/>
+            <text x="890" y="212" fill="#F2F4F7" font-size="30" font-weight="700">② 追加待ち</text>
+            <text x="890" y="262" fill="#C3CDD9" font-size="26">最終更新から5分</text>
+          </g>
+
+          <g class="node" tabindex="0" data-name="③ 書類の種別を分ける"
+             data-tip="請求書・銀行資料・発注書・取引証拠のどれかを判定します。以降の抽出項目がここで決まります。">
+            <rect class="box" x="1260" y="140" width="330" height="170" rx="10" fill="#1B2333" stroke="#D4AF37" stroke-width="2"/>
+            <text x="1290" y="212" fill="#F2F4F7" font-size="30" font-weight="700">③ 種別を分ける</text>
+            <text x="1290" y="262" fill="#C3CDD9" font-size="26">請求書・銀行資料など</text>
+          </g>
+
+          <g class="node" tabindex="0" data-name="④ 2系統で読み取る"
+             data-tip="Document AI と生成AI の両方を当てます。どちらを採用するかは、書類種別ごとに精度の実測で決めます（図2）。">
+            <rect class="box" x="60" y="560" width="330" height="170" rx="10" fill="#1B2333" stroke="#D4AF37" stroke-width="2"/>
+            <text x="90" y="632" fill="#F2F4F7" font-size="30" font-weight="700">④ 2系統で読む</text>
+            <text x="90" y="682" fill="#C3CDD9" font-size="26">OCR＋生成AI</text>
+          </g>
+
+          <g class="node" tabindex="0" data-name="⑤ 前回の資料と比べる"
+             data-tip="同一顧客の銀行資料を、口座と取引期間で正規化して前回の版と突き合わせます。口座情報・取引期間・最終／開始残高・ページ順序・欠落期間・重複・別口座の混入の7点を見ます。">
+            <rect class="box" x="460" y="560" width="330" height="170" rx="10" fill="#1B2333" stroke="#D4AF37" stroke-width="2"/>
+            <text x="490" y="632" fill="#F2F4F7" font-size="30" font-weight="700">⑤ 前回と比べる</text>
+            <text x="490" y="682" fill="#C3CDD9" font-size="26">断定せず「要確認」</text>
+          </g>
+
+          <g class="node" tabindex="0" data-name="⑥ 管理画面に要確認を出す"
+             data-tip="一覧では要確認がある申込だけ色が付くので、全件を開かずに済みます。詳細では抽出結果と元の書類を並べて確認できます。画面はパスワードで保護します。">
+            <rect class="box" x="860" y="560" width="330" height="170" rx="10" fill="#111825" stroke="#5FB894" stroke-width="2.5"/>
+            <text x="890" y="632" fill="#F2F4F7" font-size="30" font-weight="700">⑥ 要確認を表示</text>
+            <text x="890" y="682" fill="#C3CDD9" font-size="26">簡易管理画面</text>
+          </g>
+
+          <g class="node" tabindex="0" data-name="⑦ 審査担当者へ通知"
+             data-tip="解析が終わった時点で、要確認の件数と画面への直リンクをメールでお送りします。">
+            <rect class="box" x="1260" y="560" width="330" height="170" rx="10" fill="#111825" stroke="#5FB894" stroke-width="2.5"/>
+            <text x="1290" y="632" fill="#F2F4F7" font-size="30" font-weight="700">⑦ 担当者へ通知</text>
+            <text x="1290" y="682" fill="#C3CDD9" font-size="26">メールで直リンク</text>
+          </g>
+
+          <path d="M394,225 L450,225" stroke="#D4AF37" stroke-width="3" marker-end="url(#f1a)"/>
+          <path d="M794,225 L850,225" stroke="#D4AF37" stroke-width="3" marker-end="url(#f1a)"/>
+          <path d="M1194,225 L1250,225" stroke="#D4AF37" stroke-width="3" marker-end="url(#f1a)"/>
+          <path d="M1425,314 L1425,420 L225,420 L225,548" fill="none" stroke="#D4AF37" stroke-width="3" marker-end="url(#f1a)"/>
+          <path d="M394,645 L450,645" stroke="#D4AF37" stroke-width="3" marker-end="url(#f1a)"/>
+          <path d="M794,645 L850,645" stroke="#D4AF37" stroke-width="3" marker-end="url(#f1a)"/>
+          <path d="M1194,645 L1250,645" stroke="#D4AF37" stroke-width="3" marker-end="url(#f1a)"/>
+
+          <text x="490" y="352" fill="#9AA7B4" font-size="24">※ ファイルIDと更新日時で管理＝同じファイルを二重に解析しません。</text>
+          <text x="860" y="778" fill="#5FB894" font-size="24">緑の枠＝人が見る場所。判断は審査担当者様に残ります。</text>
+        </svg>
+      </div>
+    </div>
+
+    <h3>図2　読み取りは2系統を比べて決めます</h3>
     <div class="figure">
       <div class="svg-holder">
         <svg viewBox="0 0 1600 640" role="img" aria-label="定型の帳票はDocument AI、様式が決まっていない書類は生成AIを主に担当させつつ、両方を同じサンプルに当てて比較し、書類種別ごとに採用を決める図">
@@ -297,46 +323,41 @@
              data-tip="様式がほぼ決まっている書類です。項目の位置が安定しているため、帳票の項目抽出に強い系統が向きます。">
             <rect class="box" x="60" y="70" width="420" height="200" rx="10" fill="#111825" stroke="#8C7526" stroke-width="2"/>
             <text x="90" y="128" fill="#D4AF37" font-size="27" font-weight="700">定型の帳票</text>
-            <text x="90" y="172" fill="#F2F4F7" font-size="21">請求書・発注書・注文書</text>
-            <text x="90" y="210" fill="#F2F4F7" font-size="21">取引CSV</text>
-            <text x="90" y="246" fill="#9AA7B4" font-size="19">項目の位置が安定している</text>
+            <text x="90" y="176" fill="#F2F4F7" font-size="21">請求書・発注書・注文書</text>
+            <text x="90" y="214" fill="#F2F4F7" font-size="21">取引CSV</text>
           </g>
 
           <g class="node" tabindex="0" data-name="様式が決まっていない書類"
              data-tip="撮り方も写り方も毎回変わる書類です。決まった位置に項目が無いため、文脈から判断できる系統が向きます。">
             <rect class="box" x="60" y="350" width="420" height="200" rx="10" fill="#111825" stroke="#8C7526" stroke-width="2"/>
             <text x="90" y="408" fill="#D4AF37" font-size="27" font-weight="700">様式が決まっていない書類</text>
-            <text x="90" y="452" fill="#F2F4F7" font-size="21">通帳写真・ネットバンキング画面</text>
-            <text x="90" y="490" fill="#F2F4F7" font-size="21">メール・LINE の取引証拠</text>
-            <text x="90" y="526" fill="#9AA7B4" font-size="19">傾き・影・低解像度が混ざる</text>
+            <text x="90" y="456" fill="#F2F4F7" font-size="21">通帳写真・ネットバンキング画面</text>
+            <text x="90" y="494" fill="#F2F4F7" font-size="21">メール・LINE の取引証拠</text>
           </g>
 
           <g class="node" tabindex="0" data-name="Document AI（Google Cloud）"
              data-tip="入口のGoogle Driveと同じGoogleの基盤で完結するため、データを外へ出す先が1つ減ります。ご依頼文のセキュリティ要件に効きます。">
             <rect class="box" x="620" y="70" width="380" height="200" rx="10" fill="#1B2333" stroke="#D4AF37" stroke-width="2"/>
             <text x="650" y="128" fill="#F2F4F7" font-size="27" font-weight="700">Document AI</text>
-            <text x="650" y="166" fill="#9AA7B4" font-size="20">Google Cloud</text>
-            <text x="650" y="216" fill="#F2F4F7" font-size="20">定型帳票の項目抽出に強い</text>
-            <text x="650" y="250" fill="#5FB894" font-size="20">Driveと同じ基盤で完結</text>
+            <text x="650" y="166" fill="#C3CDD9" font-size="22">Google Cloud</text>
+            <text x="650" y="220" fill="#5FB894" font-size="20">Driveと同じ基盤で完結</text>
           </g>
 
           <g class="node" tabindex="0" data-name="生成AI（Gemini）"
              data-tip="決まった様式が無い書類や、文脈で判断が要るものに向きます。書類種別の分類と「不鮮明・欠落の疑い」の指摘もこちらが受け持ちます。">
             <rect class="box" x="620" y="350" width="380" height="200" rx="10" fill="#1B2333" stroke="#D4AF37" stroke-width="2"/>
             <text x="650" y="408" fill="#F2F4F7" font-size="27" font-weight="700">生成AI（Gemini）</text>
-            <text x="650" y="458" fill="#F2F4F7" font-size="20">文脈で判断が要る書類</text>
-            <text x="650" y="492" fill="#F2F4F7" font-size="20">書類種別の分類</text>
-            <text x="650" y="526" fill="#F2F4F7" font-size="20">不鮮明・欠落の指摘</text>
+            <text x="650" y="446" fill="#C3CDD9" font-size="22">Gemini</text>
+            <text x="650" y="500" fill="#F2F4F7" font-size="20">文脈で判断が要る書類</text>
           </g>
 
           <g class="node" tabindex="0" data-name="比較して採用を決める"
              data-tip="どちらが主担当かを最初から決め打ちせず、同じサンプルに両方を当てます。精度が足りない種別が出た場合は、別系統（Azure等）の追加検証をご提案します。">
             <rect class="box" x="1120" y="180" width="430" height="280" rx="10" fill="rgba(212,175,55,.06)" stroke="#D4AF37" stroke-width="2.5"/>
-            <text x="1150" y="240" fill="#D4AF37" font-size="27" font-weight="700">同じサンプルで比較</text>
-            <text x="1150" y="292" fill="#F2F4F7" font-size="21">両方を同じ書類に当てる</text>
-            <text x="1150" y="330" fill="#F2F4F7" font-size="21">書類種別ごとに採用を決める</text>
-            <text x="1150" y="368" fill="#F2F4F7" font-size="21">決めた根拠を数字で残す</text>
-            <text x="1150" y="416" fill="#9AA7B4" font-size="19">PoC 第1〜2週で実施</text>
+            <text x="1150" y="248" fill="#D4AF37" font-size="27" font-weight="700">同じサンプルで比較</text>
+            <text x="1150" y="308" fill="#F2F4F7" font-size="21">書類種別ごとに採用を決め、</text>
+            <text x="1150" y="346" fill="#F2F4F7" font-size="21">その根拠を数字で残します。</text>
+            <text x="1150" y="400" fill="#C3CDD9" font-size="22">PoC 第1〜2週で実施</text>
           </g>
 
           <path d="M486,155 L610,155" stroke="#D4AF37" stroke-width="3" marker-end="url(#f2a)"/>
@@ -345,277 +366,62 @@
           <path d="M486,400 L610,225" stroke="#6C7A8C" stroke-width="2.5" stroke-dasharray="7 6" marker-end="url(#f2b)"/>
           <path d="M1006,180 L1110,262" stroke="#D4AF37" stroke-width="3" marker-end="url(#f2a)"/>
           <path d="M1006,440 L1110,380" stroke="#D4AF37" stroke-width="3" marker-end="url(#f2a)"/>
-          <text x="500" y="318" fill="#9AA7B4" font-size="19">点線＝比較のために</text>
-          <text x="500" y="350" fill="#9AA7B4" font-size="19">もう一方にも当てる</text>
+          <text x="500" y="318" fill="#C3CDD9" font-size="21">点線＝比較のために</text>
+          <text x="500" y="350" fill="#C3CDD9" font-size="21">もう一方にも当てる</text>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section id="ch3">
+    <h2><span class="step">&#9314;</span>20万円の中身</h2>
+
+    <h3>図3　入る／難しい／別途</h3>
+    <div class="figure">
+      <div class="svg-holder">
+        <svg viewBox="0 0 1600 660" role="img" aria-label="20万円で入る範囲、PoCで実測値を出す難しい範囲、別途になる範囲の3層を示した図">
+          <g class="node" tabindex="0" data-name="入る範囲（20万円）"
+             data-tip="Drive監視、書類種別の分類、請求書・銀行資料の項目抽出、警告表示、基本照合、前回比較、簡易管理画面、メール通知、JSON出力と仕様書、精度検証結果と費用目安、ソースコード一式と手順書、本番化への推奨構成。">
+            <rect class="box" x="60" y="50" width="1480" height="180" rx="10" fill="rgba(212,175,55,.09)" stroke="#D4AF37" stroke-width="3"/>
+            <text x="100" y="118" fill="#D4AF37" font-size="32" font-weight="700">入る範囲</text>
+            <text x="100" y="172" fill="#F2F4F7" font-size="22">Drive監視／種別分類／項目抽出／警告／基本照合／前回比較</text>
+            <text x="100" y="208" fill="#F2F4F7" font-size="22">管理画面／メール通知／JSON仕様書／精度と費用の実測結果／ソース一式</text>
+            <text x="1210" y="118" fill="#D4AF37" font-size="28" font-weight="700">200,000円</text>
+            <text x="1140" y="208" fill="#5FB894" font-size="22">ご満足いただけなければ全額返金</text>
+          </g>
+
+          <g class="node" tabindex="0" data-name="難しい範囲（PoCで実測値を出します）"
+             data-tip="前処理（傾き補正・明るさ調整）は入れますが100%にはなりません。銀行フォーマットはPoCでは代表2〜3行に絞って精度を出します。">
+            <rect class="box" x="60" y="270" width="1480" height="160" rx="10" fill="rgba(224,114,74,.08)" stroke="#E0724A" stroke-width="3"/>
+            <text x="100" y="338" fill="#E0724A" font-size="32" font-weight="700">難しい範囲</text>
+            <text x="100" y="392" fill="#F2F4F7" font-size="22">スマホ写真の傾き・影・低解像度／手書き／銀行フォーマットの網羅</text>
+            <text x="1090" y="338" fill="#E0724A" font-size="24" font-weight="700">PoCで実測値を出します</text>
+          </g>
+
+          <g class="node" tabindex="0" data-name="別途になる範囲"
+             data-tip="上の行はご要望があれば内容と金額をご相談のうえ別途お見積りします。下の行はご依頼文で対象外と明記されているものです。">
+            <rect class="box" x="60" y="470" width="1480" height="150" rx="10" fill="#111825" stroke="#4A586B" stroke-width="2.5"/>
+            <text x="100" y="536" fill="#9AA7B4" font-size="32" font-weight="700">別途になる範囲</text>
+            <text x="100" y="582" fill="#F2F4F7" font-size="22">品目単位の突合／銀行フォーマットの追加対応／権限管理・監査ログ</text>
+            <text x="100" y="614" fill="#9AA7B4" font-size="22">既存改修・自動承認・本番運用環境の構築（ご依頼文どおり対象外）</text>
+          </g>
         </svg>
       </div>
     </div>
 
     <div class="reading caution">
-      <h3><span class="tag">費用について</span>数字は推測で書きません</h3>
+      <h3><span class="tag">費用</span>単価は推測で書きません</h3>
       <p>
-        OCR・AIはいずれも<b>従量課金</b>で、1件あたりの費用は書類の枚数と画質で変わります。<br>
-        今の時点で単価を断言するとお約束が守れなくなるため、書いておりません。<br>
-        <b>PoCの第1週にサンプル20〜30件で実測し、「1件あたり◯円・月◯件なら月額◯円」を数字でご報告します</b>（ご依頼文の成果物「費用目安」がこれに当たります）。
-      </p>
-    </div>
-  </section>
-
-  <section id="ch3">
-    <h2><span class="step">&#9314;</span>Driveの検出と「前回との比較」をどう作るか</h2>
-
-    <div class="figure">
-      <div class="svg-holder">
-        <svg viewBox="0 0 1600 840" role="img" aria-label="Google Driveの申込フォルダの変更を検出し、追加が終わるのを待ってから書類種別を分け、2系統で読み取り、前回資料と比較し、管理画面に要確認を出して担当者へ通知するまでの流れ図">
-          <defs>
-            <marker id="f1a" markerWidth="12" markerHeight="12" refX="9" refY="4" orient="auto">
-              <path d="M0,0 L9,4 L0,8 Z" fill="#D4AF37"/>
-            </marker>
-          </defs>
-
-          <g class="node" tabindex="0" data-name="Google Drive（申込ごとのフォルダ）"
-             data-tip="お客様が提出した書類が自動保存されている場所です。当方は読み取り専用の権限だけを要求し、書き込み権限は最初から持ちません。">
-            <rect class="box" x="60" y="140" width="330" height="170" rx="10" fill="#111825" stroke="#4A586B" stroke-width="2"/>
-            <text x="90" y="212" fill="#F2F4F7" font-size="26" font-weight="700">Google Drive</text>
-            <text x="90" y="252" fill="#9AA7B4" font-size="20">申込ごとのフォルダ</text>
-            <text x="90" y="286" fill="#5FB894" font-size="19">読み取り専用</text>
-          </g>
-
-          <g class="node" tabindex="0" data-name="① 変更を検出"
-             data-tip="Drive APIの変更履歴を定期取得します。フォルダを毎回すべて走査しないため、件数が増えても処理時間が伸びません。">
-            <rect class="box" x="460" y="140" width="330" height="170" rx="10" fill="#1B2333" stroke="#D4AF37" stroke-width="2"/>
-            <text x="490" y="212" fill="#F2F4F7" font-size="26" font-weight="700">① 変更を検出</text>
-            <text x="490" y="252" fill="#9AA7B4" font-size="20">変更履歴を定期取得</text>
-            <text x="490" y="286" fill="#9AA7B4" font-size="19">件数が増えても伸びない</text>
-          </g>
-
-          <g class="node" tabindex="0" data-name="② 追加が終わるまで待つ"
-             data-tip="お客様は数分かけて複数ファイルを置いていきます。1件目で解析すると毎回「途中の状態」を解析することになるため、動きが止まるのを待ちます。時間は調整できます。">
-            <rect class="box" x="860" y="140" width="330" height="170" rx="10" fill="#1B2333" stroke="#D4AF37" stroke-width="2"/>
-            <text x="890" y="212" fill="#F2F4F7" font-size="26" font-weight="700">② 追加待ち</text>
-            <text x="890" y="252" fill="#9AA7B4" font-size="20">最終更新から5分</text>
-            <text x="890" y="286" fill="#9AA7B4" font-size="19">既定値・調整できます</text>
-          </g>
-
-          <g class="node" tabindex="0" data-name="③ 書類の種別を分ける"
-             data-tip="請求書・銀行資料・発注書・取引証拠のどれかを判定します。以降の抽出項目がここで決まります。">
-            <rect class="box" x="1260" y="140" width="330" height="170" rx="10" fill="#1B2333" stroke="#D4AF37" stroke-width="2"/>
-            <text x="1290" y="212" fill="#F2F4F7" font-size="26" font-weight="700">③ 種別を分ける</text>
-            <text x="1290" y="252" fill="#9AA7B4" font-size="20">請求書・銀行資料など</text>
-            <text x="1290" y="286" fill="#9AA7B4" font-size="19">抽出項目がここで決まる</text>
-          </g>
-
-          <g class="node" tabindex="0" data-name="④ 2系統で読み取る"
-             data-tip="Document AI と生成AI の両方を当てます。どちらを採用するかは、書類種別ごとに精度の実測で決めます（第②章の図）。">
-            <rect class="box" x="60" y="560" width="330" height="170" rx="10" fill="#1B2333" stroke="#D4AF37" stroke-width="2"/>
-            <text x="90" y="632" fill="#F2F4F7" font-size="26" font-weight="700">④ 2系統で読む</text>
-            <text x="90" y="672" fill="#9AA7B4" font-size="20">OCR＋生成AI</text>
-            <text x="90" y="706" fill="#9AA7B4" font-size="19">JSONで出力</text>
-          </g>
-
-          <g class="node" tabindex="0" data-name="⑤ 前回の資料と比べる"
-             data-tip="同一顧客の銀行資料を、口座と取引期間で正規化して前回の版と突き合わせます。AIは不正と断定せず「要確認」とその根拠だけを出します。">
-            <rect class="box" x="460" y="560" width="330" height="170" rx="10" fill="#1B2333" stroke="#D4AF37" stroke-width="2"/>
-            <text x="490" y="632" fill="#F2F4F7" font-size="26" font-weight="700">⑤ 前回と比べる</text>
-            <text x="490" y="672" fill="#9AA7B4" font-size="20">口座・期間・残高</text>
-            <text x="490" y="706" fill="#9AA7B4" font-size="19">断定せず「要確認」</text>
-          </g>
-
-          <g class="node" tabindex="0" data-name="⑥ 管理画面に要確認を出す"
-             data-tip="一覧では要確認がある申込だけ色が付くので、全件を開かずに済みます。詳細では抽出結果と元の書類を並べて確認できます。">
-            <rect class="box" x="860" y="560" width="330" height="170" rx="10" fill="#111825" stroke="#5FB894" stroke-width="2.5"/>
-            <text x="890" y="632" fill="#F2F4F7" font-size="26" font-weight="700">⑥ 要確認を表示</text>
-            <text x="890" y="672" fill="#9AA7B4" font-size="20">簡易管理画面</text>
-            <text x="890" y="706" fill="#5FB894" font-size="19">判断は担当者様に残る</text>
-          </g>
-
-          <g class="node" tabindex="0" data-name="⑦ 審査担当者へ通知"
-             data-tip="解析が終わった時点で、要確認の件数と画面への直リンクをメールでお送りします。">
-            <rect class="box" x="1260" y="560" width="330" height="170" rx="10" fill="#111825" stroke="#5FB894" stroke-width="2.5"/>
-            <text x="1290" y="632" fill="#F2F4F7" font-size="26" font-weight="700">⑦ 担当者へ通知</text>
-            <text x="1290" y="672" fill="#9AA7B4" font-size="20">メール</text>
-            <text x="1290" y="706" fill="#9AA7B4" font-size="19">要確認の件数と直リンク</text>
-          </g>
-
-          <path d="M394,225 L450,225" stroke="#D4AF37" stroke-width="3" marker-end="url(#f1a)"/>
-          <path d="M794,225 L850,225" stroke="#D4AF37" stroke-width="3" marker-end="url(#f1a)"/>
-          <path d="M1194,225 L1250,225" stroke="#D4AF37" stroke-width="3" marker-end="url(#f1a)"/>
-          <path d="M1425,314 L1425,420 L225,420 L225,548" fill="none" stroke="#D4AF37" stroke-width="3" marker-end="url(#f1a)"/>
-          <path d="M394,645 L450,645" stroke="#D4AF37" stroke-width="3" marker-end="url(#f1a)"/>
-          <path d="M794,645 L850,645" stroke="#D4AF37" stroke-width="3" marker-end="url(#f1a)"/>
-          <path d="M1194,645 L1250,645" stroke="#D4AF37" stroke-width="3" marker-end="url(#f1a)"/>
-
-          <rect x="60" y="40" width="720" height="62" rx="6" fill="rgba(95,184,148,.10)" stroke="#5FB894" stroke-width="1.5"/>
-          <text x="86" y="82" fill="#5FB894" font-size="21">緑の枠＝人が見る場所。判断は審査担当者様に残ります。</text>
-          <text x="820" y="470" fill="#9AA7B4" font-size="21">①と③はファイルIDと更新日時で処理済みを管理＝同じファイルを二重に解析しません。</text>
-        </svg>
-      </div>
-    </div>
-
-    <h3>1. 新規・更新フォルダの検出（読み取り専用）</h3>
-    <div class="reading">
-      <ul>
-        <li>Drive APIの<b>変更履歴（changes）</b>を定期取得します。フォルダを毎回すべて走査しないため、件数が増えても時間が伸びません。</li>
-        <li>権限は<b>読み取り専用のスコープのみ</b>を要求します。書き込み権限は最初から持ちません。</li>
-        <li>処理済みの管理は<b>ファイルIDと更新日時</b>で行います。同じファイルを二重に解析しない作りです（同じ処理を何度流しても結果が変わりません）。</li>
-      </ul>
-    </div>
-
-    <h3>2. 「書類追加が終わったか」の待ち方</h3>
-    <div class="reading">
-      <p>
-        申込ごとのフォルダは、お客様が数分かけて複数ファイルを置いていきます。<br>
-        1ファイル置かれた時点で解析すると、<b>毎回「途中の状態」を解析してしまいます</b>。<br>
-        そこで<b>「そのフォルダの最終更新から一定時間（既定5分・調整可）動きが無ければ解析を開始」</b>とします。<br>
-        解析後に追加があれば、その分だけ再解析し、結果を上書きせず<b>版として積みます</b>（前回との比較に使うため）。
-      </p>
-    </div>
-
-    <h3>3. 同一顧客の「前回と今回」の比較</h3>
-    <div class="reading">
-      <ul>
-        <li>銀行資料を<b>口座（銀行名・口座名義・口座番号）と取引期間</b>で正規化し、前回の版と突き合わせます。</li>
-        <li>確認するのはご依頼文の7点です&nbsp;&mdash;&nbsp;口座情報／取引期間／最終・開始残高／ページ順序／欠落期間／重複／別口座の混入。</li>
-        <li><b>AIは「不正」と断定しません。</b>「要確認」と、その根拠（どのページ・どの行がそう見えたか）だけを出します。判断は審査担当者様に残ります。</li>
-      </ul>
-    </div>
-
-    <h3>4. 担当者様が見る画面と通知</h3>
-    <div class="reading">
-      <p>
-        簡易管理画面は<b>一覧（申込ごと・要確認の件数つき）</b>と<b>詳細（抽出結果と元の書類を並べて確認）</b>の2画面です。<br>
-        要確認がある申込だけ色が付くので、<b>全件を開かずに済みます</b>。<br>
-        解析が終わった時点で、審査担当者様へメールで通知します（要確認の件数と、画面への直リンク）。<br>
-        画面はパスワードで保護し、URLを知っているだけでは開けない状態にします。
+        OCR・AIはいずれも従量課金で、1件あたりの費用は書類の枚数と画質で変わります。<br>
+        <b>PoCの第1週にサンプル20〜30件で実測し、1件あたりと月額を数字でご報告します。</b><br>ご依頼文の成果物「費用目安」がこれに当たります。
       </p>
     </div>
   </section>
 
   <section id="ch4">
-    <h2><span class="step">&#9315;</span>20万円の中でできること／別途になること</h2>
+    <h2><span class="step">&#9315;</span>納期とお約束</h2>
 
-    <div class="reading">
-      <h3>この線引きを先に出す理由</h3>
-      <p>
-        194件のご提案の中では、<b>「全部できます」と書くほうが通りやすい</b>ことは承知しております。<br>
-        ただ、審査業務に入るPoCで後から「そこは入っていません」となるほうが、御社の損失が大きいと考えました。<br>
-        下の表が、現時点でお約束できる線です。
-      </p>
-    </div>
-
-    <div class="figure">
-      <div class="svg-holder">
-        <svg viewBox="0 0 1600 660" role="img" aria-label="20万円で入る範囲、PoCで実測値を出す難しい範囲、別途になる範囲の3層を示した図">
-          <g class="node" tabindex="0" data-name="入る範囲（20万円）"
-             data-tip="ご提示の固定報酬200,000円で完了までお約束できる範囲です。ご満足いただけなければ全額返金いたします。">
-            <rect class="box" x="60" y="50" width="1480" height="180" rx="10" fill="rgba(212,175,55,.09)" stroke="#D4AF37" stroke-width="3"/>
-            <text x="100" y="112" fill="#D4AF37" font-size="30" font-weight="700">入る範囲</text>
-            <text x="100" y="158" fill="#F2F4F7" font-size="21">Drive監視／書類種別の分類／請求書・銀行資料の項目抽出／警告表示／基本照合／前回比較</text>
-            <text x="100" y="196" fill="#F2F4F7" font-size="21">簡易管理画面／メール通知／JSON出力と仕様書／精度検証結果と費用目安／ソース一式と手順</text>
-            <text x="1230" y="112" fill="#D4AF37" font-size="27" font-weight="700">200,000円</text>
-            <text x="1160" y="196" fill="#5FB894" font-size="21">ご満足いただけなければ全額返金</text>
-          </g>
-
-          <g class="node" tabindex="0" data-name="難しい範囲（PoCで実測値を出します）"
-             data-tip="前処理（傾き補正・明るさ調整）は入れますが100%にはなりません。どこまで読めるかを数字でお出しし、業務に足りるかをご判断いただきます。">
-            <rect class="box" x="60" y="270" width="1480" height="160" rx="10" fill="rgba(224,114,74,.08)" stroke="#E0724A" stroke-width="3"/>
-            <text x="100" y="332" fill="#E0724A" font-size="30" font-weight="700">難しい範囲</text>
-            <text x="100" y="378" fill="#F2F4F7" font-size="21">スマホ写真の強い傾き・影・低解像度／手書きの数字・押印の重なり</text>
-            <text x="100" y="414" fill="#F2F4F7" font-size="21">銀行フォーマットの網羅（PoCは代表2〜3行）／ページ数の多い通帳の全ページ精度</text>
-            <text x="1120" y="332" fill="#E0724A" font-size="23" font-weight="700">PoCで実測値を出します</text>
-          </g>
-
-          <g class="node" tabindex="0" data-name="別途になる範囲"
-             data-tip="下の4行目はご依頼文で対象外と明記されているものです。上の3行は、ご要望があれば内容と金額をご相談のうえ別途お見積りします。">
-            <rect class="box" x="60" y="470" width="1480" height="150" rx="10" fill="#111825" stroke="#4A586B" stroke-width="2.5"/>
-            <text x="100" y="530" fill="#9AA7B4" font-size="30" font-weight="700">別途になる範囲</text>
-            <text x="100" y="574" fill="#F2F4F7" font-size="21">品目単位の突合／銀行フォーマットの追加対応／権限管理・監査ログの作り込み</text>
-            <text x="100" y="608" fill="#9AA7B4" font-size="21">既存改修・自動承認／否決・買取条件の自動決定・本番運用環境の構築（ご依頼文どおり対象外）</text>
-          </g>
-        </svg>
-      </div>
-    </div>
-
-    <div class="table-wrap">
-      <table>
-        <thead>
-          <tr><th>区分</th><th>内容</th></tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>入る範囲<br>（20万円）</td>
-            <td>
-              ・Drive監視（変更検出・静止判定・再解析）<br>
-              ・PDF／PNG／JPG／JPEG／CSV の取込<br>
-              ・書類種別の分類<br>
-              ・請求書の項目抽出（請求元・請求先・金額・発行日・支払期日・振込先）<br>
-              ・銀行資料の項目抽出（銀行名・口座名義・取引日・入出金額・残高・取引相手）<br>
-              ・警告の表示（不鮮明・欠落・重複・読取失敗・不一致）<br>
-              ・請求書と発注書・取引証拠の基本照合（<b>金額・日付・取引先名の一致確認まで</b>）<br>
-              ・前回比較（&#9314;章の7点）<br>
-              ・簡易管理画面とメール通知<br>
-              ・解析結果のJSON出力とJSON仕様書<br>
-              ・サンプルによる精度検証結果と、OCR／AI／外部APIの費用目安<br>
-              ・ソースコード一式・設定／起動手順・本番化への推奨構成<br>
-              ・<b>ご満足いただけなければ全額返金</b>
-            </td>
-          </tr>
-          <tr>
-            <td>難しい範囲<br>（PoCで実測値を出します）</td>
-            <td>
-              ・スマホ写真の強い傾き・影・低解像度&nbsp;&mdash;&nbsp;前処理（傾き補正・明るさ調整）は入れますが<b>100%にはなりません</b><br>
-              ・手書きの数字・押印の重なり<br>
-              ・銀行フォーマットの網羅&nbsp;&mdash;&nbsp;PoCでは<b>代表2〜3行に絞って</b>精度を出します<br>
-              ・ページ数の多い通帳（数十ページ）の全ページ精度
-            </td>
-          </tr>
-          <tr>
-            <td>別途になる範囲</td>
-            <td>
-              ・品目（明細行）単位での請求書と発注書の突合<br>
-              ・銀行フォーマットの追加対応（PoCで残った行）<br>
-              ・利用者ごとの権限管理・監査ログの作り込み<br>
-              ・既存サービスの改修／自動承認・否決／買取条件の自動決定／本番運用環境の構築（<b>ご依頼文どおり対象外</b>）
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-
-  <section id="ch5">
-    <h2><span class="step">&#9316;</span>近い実績と、正直に足りないところ</h2>
-
-    <div class="table-wrap">
-      <table>
-        <thead>
-          <tr><th>今回に効くこと</th><th>実際にやったこと</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>書類の構造を扱う</td><td>原本のPDFを忠実に再現し、データを差し替えて量産する仕組みを構築しました。Excelの顧客データから定型書類（Word／PDF）を自動で作り、一括送信する仕組みも納品しています。</td></tr>
-          <tr><td>文書を読ませて<br>構造化する</td><td>典拠となる文書に基づいて候補案と説明書を作るAIアプリを納品しました。Claude・OpenAIのAPIをアプリに組み込んだ実績が2件ございます。</td></tr>
-          <tr><td>定期的に取り込み、<br>二重処理しない</td><td>複数の外部サービスの売上データを、毎日決まった時刻にデータ基盤へ取り込む仕組みを構築しました（2件）。GitHub Actionsでの定期実行・監視も同じ構成です。</td></tr>
-          <tr><td>担当者が使う画面</td><td>Pythonのツールを、パスワード付きで誰でも使えるWebアプリにして納品しました（2件）。会員登録・ログイン・決済連携を備えたWebサービスの構築も1件ございます。</td></tr>
-          <tr><td>データの扱い</td><td>公開範囲の制限や初期パスワードの撤去など、稼働中システムのセキュリティ緊急対処を行いました。有償のセキュリティ相談・監査も承っております。</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="reading caution">
-      <h3><span class="tag">正直に</span>足りないところ</h3>
-      <p>
-        <b>OCRエンジンを使った納品実績は、現時点でございません。</b><br>
-        そのため「当社の実績から精度はこうなります」とは申し上げられません。<br>
-        今回がPoC（精度をこれから確かめる案件）であることを踏まえ、<br>
-        <b>第1〜2週で御社の実データに2系統を当て、数字が出た時点で一度ご判断いただく</b>進め方をご提案します。<br>
-        そこで精度が業務に足りないと判断された場合は、<b>その時点でお止めいただいて構いません（全額返金）</b>。
-      </p>
-    </div>
-  </section>
-
-  <section id="ch6">
-    <h2><span class="step">&#9317;</span>納期・修正対応・再委託・秘密保持</h2>
-
+    <h3>図4　4〜6週間の進み方</h3>
     <div class="figure">
       <div class="svg-holder">
         <svg viewBox="0 0 1600 480" role="img" aria-label="4〜6週間を3つの期間に分け、第1〜2週の精度実測の時点で一度ご判断いただけることを示した図">
@@ -626,27 +432,24 @@
           </defs>
 
           <g class="node" tabindex="0" data-name="第1〜2週 精度検証"
-             data-tip="御社の実データに2系統を当て、書類種別ごとの精度とAPI費用を数字でお出しします。ここで一度ご判断いただけます。">
+             data-tip="御社の実データに2系統を当て、書類種別ごとの精度とAPI費用を数字でお出しします。">
             <rect class="box" x="60" y="90" width="480" height="170" rx="10" fill="rgba(212,175,55,.09)" stroke="#D4AF37" stroke-width="2.5"/>
             <text x="90" y="152" fill="#D4AF37" font-size="27" font-weight="700">第1〜2週</text>
-            <text x="90" y="196" fill="#F2F4F7" font-size="21">精度検証と費用の実測</text>
-            <text x="90" y="234" fill="#9AA7B4" font-size="20">サンプル20〜30件</text>
+            <text x="90" y="200" fill="#F2F4F7" font-size="22">精度と費用の実測</text>
           </g>
 
           <g class="node" tabindex="0" data-name="第3〜4週 Drive連携と管理画面"
              data-tip="変更検出・静止判定・再解析と、担当者様が見る一覧と詳細の画面を作ります。">
             <rect class="box" x="560" y="90" width="480" height="170" rx="10" fill="#1B2333" stroke="#D4AF37" stroke-width="2"/>
             <text x="590" y="152" fill="#F2F4F7" font-size="27" font-weight="700">第3〜4週</text>
-            <text x="590" y="196" fill="#F2F4F7" font-size="21">Drive連携と管理画面</text>
-            <text x="590" y="234" fill="#9AA7B4" font-size="20">検出・静止判定・再解析</text>
+            <text x="590" y="200" fill="#F2F4F7" font-size="22">Drive連携と管理画面</text>
           </g>
 
           <g class="node" tabindex="0" data-name="第5〜6週 前回比較と仕上げ"
              data-tip="前回資料との比較、メール通知、JSON仕様書・手順書・本番化への推奨構成をまとめてお引渡しします。">
             <rect class="box" x="1060" y="90" width="480" height="170" rx="10" fill="#1B2333" stroke="#D4AF37" stroke-width="2"/>
             <text x="1090" y="152" fill="#F2F4F7" font-size="27" font-weight="700">第5〜6週</text>
-            <text x="1090" y="196" fill="#F2F4F7" font-size="21">前回比較・通知・仕上げ</text>
-            <text x="1090" y="234" fill="#9AA7B4" font-size="20">仕様書と手順書を添えて引渡し</text>
+            <text x="1090" y="200" fill="#F2F4F7" font-size="22">前回比較・通知・引渡し</text>
           </g>
 
           <path d="M544,175 L552,175" stroke="#D4AF37" stroke-width="3" marker-end="url(#f4a)"/>
@@ -654,9 +457,8 @@
 
           <path d="M300,268 L300,300" stroke="#5FB894" stroke-width="3"/>
           <path d="M288,300 L312,300 L300,322 Z" fill="#5FB894"/>
-          <text x="90" y="372" fill="#5FB894" font-size="23" font-weight="700">ここで一度ご判断いただけます</text>
-          <text x="90" y="410" fill="#F2F4F7" font-size="21">精度が業務に足りないと判断された場合は、この時点でお止めいただいて構いません（全額返金）。</text>
-          <text x="90" y="446" fill="#9AA7B4" font-size="21">全期間を通じて、毎週、動くものをお見せします。最後に全部お見せする進め方はいたしません。</text>
+          <text x="90" y="378" fill="#5FB894" font-size="24" font-weight="700">ここで一度ご判断いただけます</text>
+          <text x="90" y="420" fill="#F2F4F7" font-size="22">精度が業務に足りなければ、この時点でお止めいただいて構いません（全額返金）。</text>
         </svg>
       </div>
     </div>
@@ -667,13 +469,10 @@
           <tr><th>項目</th><th>内容</th></tr>
         </thead>
         <tbody>
-          <tr><td>期間</td><td>4〜6週間（ご提示の期間どおり）。第1〜2週＝精度検証、第3〜4週＝Drive連携と管理画面、第5〜6週＝前回比較・通知・仕上げ。</td></tr>
-          <tr><td>進め方</td><td><b>毎週、動くものをお見せします。</b>週1回・15〜30分のオンラインでも、画面の録画共有でも構いません。「最後に全部お見せする」進め方はいたしません。</td></tr>
-          <tr><td>修正対応</td><td>検収期間中の不具合修正は無償です。仕様の変更・追加は、内容と金額をご相談のうえ別途お見積りします。</td></tr>
-          <tr><td>再委託</td><td><b>ありません。</b>設計から実装まで当方1名で担当します。</td></tr>
-          <tr><td>秘密保持</td><td>秘密保持契約に対応いたします。目的外利用・AI学習への利用・無断共有はいたしません。<b>利用する外部サービスと保存期間は、着手前に一覧でご提示します。</b>一時データは処理後に削除します。</td></tr>
+          <tr><td>進め方</td><td><b>毎週、動くものをお見せします。</b>「最後に全部お見せする」進め方はいたしません。</td></tr>
+          <tr><td>修正対応</td><td>検収期間中の不具合修正は無償です。仕様の変更・追加は別途お見積りします。</td></tr>
+          <tr><td>秘密保持</td><td>NDAに対応いたします。目的外利用・AI学習への利用・無断共有はいたしません。<b>利用する外部サービスと保存期間は着手前に一覧でご提示</b>し、一時データは処理後に削除します。</td></tr>
           <tr><td>引渡し</td><td>成果物・ソースコードをお引渡しします。設定・起動手順、本番化への推奨構成を添えます。</td></tr>
-          <tr><td>稼働</td><td>平日日中を中心に、週20時間程度を確保できます。ご連絡は当日中にご返信します。</td></tr>
         </tbody>
       </table>
     </div>
